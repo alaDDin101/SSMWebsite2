@@ -1,1 +1,4 @@
 node_modules
+
+# Keep lockfiles committed for CI/deploys (some environments have global ignores).
+!package-lock.json
