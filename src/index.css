@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 97%;
+    --foreground: 30 20% 12%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 30 20% 12%;
+
+    --popover: 40 25% 95%;
+    --popover-foreground: 30 20% 12%;
+
+    --primary: 150 35% 22%;
+    --primary-foreground: 40 30% 95%;
+
+    --secondary: 38 55% 45%;
+    --secondary-foreground: 40 30% 97%;
+
+    --muted: 40 20% 90%;
+    --muted-foreground: 30 10% 45%;
+
+    --accent: 38 60% 50%;
+    --accent-foreground: 30 20% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 38 25% 82%;
+    --input: 38 25% 82%;
+    --ring: 150 35% 22%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 150 30% 12%;
+    --sidebar-foreground: 40 30% 90%;
+    --sidebar-primary: 38 55% 45%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 150 25% 18%;
+    --sidebar-accent-foreground: 40 30% 90%;
+    --sidebar-border: 150 20% 20%;
+    --sidebar-ring: 38 55% 45%;
+
+    --gold: 38 60% 50%;
+    --gold-light: 40 55% 70%;
+    --bronze: 30 45% 38%;
+    --olive: 80 25% 35%;
+    --sand: 38 30% 88%;
+    --earth: 25 30% 25%;
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 40 30% 90%;
+    --card: 30 15% 12%;
+    --card-foreground: 40 30% 90%;
+    --popover: 30 15% 12%;
+    --popover-foreground: 40 30% 90%;
+    --primary: 38 55% 45%;
+    --primary-foreground: 30 15% 8%;
+    --secondary: 150 30% 25%;
+    --secondary-foreground: 40 30% 90%;
+    --muted: 30 10% 18%;
+    --muted-foreground: 40 15% 55%;
+    --accent: 38 50% 40%;
+    --accent-foreground: 40 30% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 30 10% 22%;
+    --input: 30 10% 22%;
+    --ring: 38 55% 45%;
+    --sidebar-background: 30 15% 6%;
+    --sidebar-foreground: 40 30% 90%;
+    --sidebar-primary: 38 55% 45%;
+    --sidebar-primary-foreground: 30 15% 8%;
+    --sidebar-accent: 30 10% 14%;
+    --sidebar-accent-foreground: 40 30% 90%;
+    --sidebar-border: 30 10% 14%;
+    --sidebar-ring: 38 55% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    direction: rtl;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    direction: rtl;
+    font-feature-settings: "kern" 1;
+  }
+  #root {
+    direction: rtl;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .syrian-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4973a' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .gradient-gold {
+    @apply bg-gradient-to-r from-secondary to-accent;
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--earth)) 50%, hsl(var(--bronze)) 100%);
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.prose img {
+  @apply rounded-lg;
+}
+
+.prose a {
+  color: hsl(var(--secondary));
+}
+
+[dir="rtl"] .prose {
+  text-align: right;
+}
+
+/* “About us” section: brand-aligned surface when admin leaves section background empty */
+.about-brand-surface {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.11) 0%,
+    hsl(var(--background)) 42%,
+    hsl(var(--secondary) / 0.12) 100%
+  );
+}
+
+/* Article detail: Quill snow.css sets .ql-editor { text-align: left } — override for RTL */
+.article-body.ql-snow .ql-editor {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  font-family: inherit;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  direction: rtl !important;
+  text-align: right;
+}
+
+.article-body.ql-snow .ql-editor ul,
+.article-body.ql-snow .ql-editor ol {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-inline-start: 1.5em !important;
+}
+
+.article-body.ql-snow .ql-editor ol li:not(.ql-direction-rtl),
+.article-body.ql-snow .ql-editor ul li:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 1.5em !important;
+}
+
+.article-body.ql-snow .ql-editor li:not(.ql-direction-rtl)::before {
+  margin-left: 0.3em !important;
+  margin-right: -1.5em !important;
+  text-align: left !important;
+}
+
+.article-body.ql-snow .ql-editor .ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 3em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 4.5em !important;
+}
+.article-body.ql-snow .ql-editor .ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 6em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 7.5em !important;
+}
+.article-body.ql-snow .ql-editor .ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 9em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 10.5em !important;
+}
+.article-body.ql-snow .ql-editor .ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 12em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 13.5em !important;
+}
+.article-body.ql-snow .ql-editor .ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 15em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 16.5em !important;
+}
+.article-body.ql-snow .ql-editor .ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 18em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 19.5em !important;
+}
+.article-body.ql-snow .ql-editor .ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 21em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 22.5em !important;
+}
+.article-body.ql-snow .ql-editor .ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 24em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 25.5em !important;
+}
+.article-body.ql-snow .ql-editor .ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 27em !important;
+}
+.article-body.ql-snow .ql-editor li.ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 0 !important;
+  padding-right: 28.5em !important;
+}
+
+.article-body.ql-snow .ql-editor blockquote {
+  border-left: none;
+  border-right: 4px solid hsl(var(--border));
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+.article-body.ql-snow .ql-editor a {
+  color: hsl(var(--secondary));
+}
+
+.dark .article-body.ql-snow .ql-editor code,
+.dark .article-body.ql-snow .ql-editor pre:not(.ql-syntax) {
+  background-color: hsl(var(--muted));
+}
